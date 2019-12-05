@@ -8,17 +8,18 @@ describe('BreakfastModel Tests', () => {
     const { errors } = breakfast.validateSync();
     expect(errors.food.message).toEqual('Path `food` is required.');
   });
-  it('should have at least two items', () => {
+  it('should be at least 500 calories', () => {
     const breakfast = new Breakfast({
-      food: ['eggs'],
-      healthy: true
+      food: 'eggs',
+      healthy: true,
+      calories: 300
     });
     const { errors } = breakfast.validateSync();
-    expect(errors.food.message).toEqual('Path `food` (1) is less than minimum allowed value (2).');
+    expect(errors.calories.message).toEqual('Path `calories` (300) is less than minimum allowed value (500).');
   });
   it('should be healthy', () => {
     const breakfast = new Breakfast({
-      items: ['sugar', 'milk']
+      food: 'sugar, milk'
     });
     const { errors } = breakfast.validateSync();
     expect(errors.healthy.message).toEqual('Path `healthy` is required.');
