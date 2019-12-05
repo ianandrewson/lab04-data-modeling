@@ -16,13 +16,13 @@ class Model {
   create(entry) {
     entry.id = uuid();
     let record = this.sanitize(entry);
-    if (record.id) { this.database.push(record); }
+    if(record.id) { this.database.push(record); }
     return Promise.resolve(record);
   }
 
   update(id, entry) {
     let record = this.sanitize(entry);
-    if (record.id) { this.database = this.database.map((item) => (item.id === id) ? record : item); }
+    if(record.id) { this.database = this.database.map((item) => (item.id === id) ? record : item); }
     return Promise.resolve(record);
   }
 
@@ -37,8 +37,8 @@ class Model {
     let record = {};
 
     Object.keys(this.schema).forEach(field => {
-      if (this.schema[field].required) {
-        if (entry[field]) {
+      if(this.schema[field].required) {
+        if(entry[field]) {
           record[field] = entry[field];
         } else {
           valid = false;
