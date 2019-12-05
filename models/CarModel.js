@@ -10,6 +10,15 @@ const schema = new mongoose.Schema({
     required: true,
     min: 2,
     max: 4
+  },
+  engine: {
+    type: Number,
+    required: true,
+    max: 1,
+    min: 1
+  },
+  functional: {
+    type: Boolean,
   }
 });
 
