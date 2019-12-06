@@ -12,7 +12,7 @@ describe('SynthModel test', () => {
       amp: 0
     });
     const { errors } = synth.validateSync();
-    expect(errors.amp.message).toEqual('Path `amp` (0) is less than minimum required value (1).');
+    expect(errors.amp.message).toEqual('Path `amp` (0) is less than minimum allowed value (1).');
   });
   it('should have at least one oscillator', () => {
     const synth = new Synth({
@@ -20,15 +20,15 @@ describe('SynthModel test', () => {
       oscillators: 0
     });
     const { errors } = synth.validateSync();
-    expect(errors.oscillators.message).toEqual('Path `oscillators` (0) is less than required value (1).');
+    expect(errors.oscillators.message).toEqual('Path `oscillators` (0) is less than minimum allowed value (1).');
   });
   it('should have power', () => {
     const synth = new Synth({
       amp: 2,
       oscillators: 4,
-      power: false
+      power: 'No'
     });
     const { errors } = synth.validateSync();
-    expect(errors.power.message).toEqual('`false` is not a valid enum value for path `power`.')
+    expect(errors.power.message).toEqual('`No` is not a valid enum value for path `power`.')
   });
 });
