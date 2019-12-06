@@ -12,7 +12,7 @@ describe('PersonModel tests', () => {
       moralCompass: true
     });
     const { errors } = person.validateSync();
-    expect(errors.soul.message).toEqual('Path `soul` is a required field.')
+    expect(errors.soul.message).toEqual('Path `soul` is required.');
   });
   it('should have one stomach', () => {
     const person = new Person({
@@ -21,6 +21,6 @@ describe('PersonModel tests', () => {
       stomachs: 2
     });
     const { errors } = person.validateSync();
-    expect(errors.stomachs.message).toEqual('Path `stomachs` (2) is greater than maximum allowed value.');
+    expect(errors.stomachs.message).toEqual('Path `stomachs` (2) is more than maximum allowed value (1).');
   });
 });
