@@ -29,6 +29,16 @@ describe('SynthModel test', () => {
       power: 'No'
     });
     const { errors } = synth.validateSync();
-    expect(errors.power.message).toEqual('`No` is not a valid enum value for path `power`.')
+    expect(errors.power.message).toEqual('`No` is not a valid enum value for path `power`.');
+  });
+  it('should have a manufacturer', () => {
+    const synth = new Synth({
+      amp: 2,
+      oscillators: 4,
+      power: 'yes',
+      manufacturer: 'Roland'
+    });
+    const errors = synth.validateSync();
+    expect(errors).toBeUndefined();
   });
 });

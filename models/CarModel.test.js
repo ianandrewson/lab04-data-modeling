@@ -25,7 +25,7 @@ describe('Model tests for Car', () => {
       color: 'red',
       doors: 3,
       engine: 0
-    })
+    });
     expect(car.validateSync().errors.engine.message).toEqual('Path `engine` (0) is less than minimum allowed value (1).');
   });
   it('has the right type for start', () => {

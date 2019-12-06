@@ -15,6 +15,9 @@ const schema = new mongoose.Schema({
     type: String,
     enum: ['yes', 'Yes', 'Powered', 'powered', 'has power'],
     required: true
+  }, 
+  manufacturer: {
+    type: String
   }
 });
 
