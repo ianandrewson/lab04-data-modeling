@@ -9,7 +9,7 @@
     "lint": "eslint '**/*.js'"
   },
   "jest": {
-    "testEnvironment": "Node"
+    "testEnvironment": "node"
   },
   "author": "",
   "license": "ISC",
