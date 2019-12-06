@@ -5,8 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --verbose --coverage",
-    "test:watch": "npm run test -- --watch",
+    "test:watch": "npm run test -- --watchAll",
     "lint": "eslint '**/*.js'"
+  },
+  "jest": {
+    "testEnvironment": "node"
   },
   "author": "",
   "license": "ISC",
@@ -16,6 +19,7 @@
     "jest": "^24.9.0"
   },
   "dependencies": {
-    "mongoose": "^5.7.13"
+    "mongoose": "^5.7.13",
+    "uuid": "^3.3.3"
   }
 }
